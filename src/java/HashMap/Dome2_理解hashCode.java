@@ -62,8 +62,9 @@ class SlowMap<K, V> extends AbstractMap<K, V> {
         Set<Map.Entry<K, V>> set = new HashSet<Map.Entry<K, V>>();
         Iterator<K> ki = keys.iterator();
         Iterator<V> Vi = values.iterator();
-        while (ki.hasNext())
-            set.add(new Map.Entry<K ,V>(ki.next() ,Vi.next()));
+//        while (ki.hasNext())
+//            set.add(new Map.Entry<K ,V>(ki.next() ,Vi.next()));
+
         return set;
     }
 }

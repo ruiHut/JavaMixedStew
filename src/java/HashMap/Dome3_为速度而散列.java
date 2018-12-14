@@ -49,8 +49,11 @@ class SimpleHashMap<K , V> extends AbstractMap<K , V>{
     public V put(K key ,V value){
         V oldValue = null;
         int index=  Math.abs(key.hashCode()) % SIZE;
-        if (buckets[index] == null)
-            buckets[index] == new LinkedList<Entry<K, V>>();
+        if (buckets[index] == null) {
+//            buckets[index] == new LinkedList<Entry<K, V>>();
+            return value;
+        }
+        return value;
     }
 
     @Override
