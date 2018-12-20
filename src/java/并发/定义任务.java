@@ -7,6 +7,8 @@ package 并发;
  * @create: 2018-12-19 16:50
  **/
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 线程可以驱动任务，因此你需要一种描述任务的方式，这可以由Runnable接口来提供。
  * 要定义任务，只需要实现run()方法，使得该任务可以执行你的命令。
@@ -50,6 +52,11 @@ public class 定义任务 implements Runnable {
             这完全是选择性的，但是这里使用它是因为他会在这些示例中产生根据有趣的输出。
              */
             Thread.yield();
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
