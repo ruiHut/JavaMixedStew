@@ -96,14 +96,16 @@ class Singleton{
  这种写法仍然使用JVM本身机制保证了线程安全问题；由于 SingletonHolder 是私有的，
  除了 getInstance() 之外没有办法访问它，因此它是懒加载的；同时读取实例的时候不会进行同步，没有性能缺陷；也不依赖 JDK 版本。
  */
- class Singleton2 {
-    private static class SingletonHolder { // 私有的静态内部类
-        private static final Singleton2 uniqueInstance = new Singleton2();
-    }
-    private Singleton2 (){}
-    public static final Singleton2 getInstance() {
-        return SingletonHolder.uniqueInstance;
-    }
+class SingletonByStaticClass {
+     private static class SingletonHolder {
+         private static final SingletonByStaticClass uniqueInstance = new SingletonByStaticClass();
+     }
+
+     private Singleton() {}
+
+     public static final SingletonByStaticClass getInstance() {
+         return SingletonHolder.uniqueInstance;
+     }
 }
 
 /**
