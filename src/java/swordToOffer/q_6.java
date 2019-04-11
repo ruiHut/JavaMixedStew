@@ -31,13 +31,10 @@ public class q_6 {
         }
     }
 
-    // TODO 从尾到头打印链表 递归 有待完成
+    // 从尾打印链表 递归
     private static void reverseConsoleLinkedListByRecursion(SingleLinkedList linkedList) {
-        while (head.nextNode != null) { // 终止条件
-            reverseLinkedList(head.nextNode);
-        }
-        // 具体操作操作
-        System.out.println(head.value);
+        linkedList.setHead(linkedList.getHead().nextNode);
+        linkedList.reverseConsoleLinked(linkedList.getHead());
     }
 }
 
@@ -131,6 +128,15 @@ class SingleLinkedList {
 
     public int getValue(){
         return head.value;
+    }
+
+    public void reverseConsoleLinked(SNode head) {
+        if (head != null) {
+            if (head.nextNode != null) {
+                reverseConsoleLinked(head.nextNode);
+            }
+            System.out.println(head.value);
+        }
     }
 }
 
