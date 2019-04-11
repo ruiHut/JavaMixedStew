@@ -13,11 +13,6 @@ public class q_7 {
         tree.addRight(tree.getRoot().rNode, 6);
         tree.addLeft(tree.getRoot().lNode, 7);
         tree.addRight(tree.getRoot().lNode, 8);
-        tree.preorderTraversal(tree.getRoot());
-        System.out.println();
-        tree.inorderTrabersal(tree.getRoot());
-        System.out.println();
-        tree.postorderTrabersal(tree.getRoot());
     }
 }
 
