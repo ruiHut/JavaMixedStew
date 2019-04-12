@@ -101,8 +101,6 @@ class SingletonByStaticClass {
          private static final SingletonByStaticClass uniqueInstance = new SingletonByStaticClass();
      }
 
-     private Singleton() {}
-
      public static final SingletonByStaticClass getInstance() {
          return SingletonHolder.uniqueInstance;
      }

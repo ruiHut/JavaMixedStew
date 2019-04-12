@@ -1,5 +1,7 @@
 package swordToOffer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class q_7 {
@@ -60,6 +62,30 @@ class BinaryTree {
         Node node = new Node(value);
         root.rNode = node;
     }
+
+    //
+    // preorders 前序结果， inorders 中序结果
+    public BinaryTree rebackBinaryTree(int[] preorders, int[] inorders) {
+        if (preorders.length == 0 && inorders.length == 0)
+            return null;
+
+        BinaryTree tree = new BinaryTree(preorders[0]);
+        int root = preorders[0];
+        List preorderChildTrees = getPreorderChildTress(preorders, inorders, root);
+        List inorderChildTrees = getInorderChildTrees(preorders, inorders, root);
+
+        return tree;
+
+    }
+
+    private List getInorderChildTrees(int[] preorders, int[] inorders, int root) {
+        return new ArrayList();
+    }
+
+    private List getPreorderChildTress(int[] preorders, int[] inorders, int root) {
+        return new ArrayList();
+    }
+
 
     // 二叉树前序遍历
     // 递归
@@ -173,3 +199,21 @@ class BinaryTree {
         }
     }
 }
+
+//        for (int i = 0; i < inorders.length; i++) {
+//        if (inorders[i] == root) {
+//        leftTree = false;
+//        continue;
+//        }
+//
+//        if (leftTree) {
+//        lTrees.add(inorders[i]);
+//        } else {
+//        rTrees.add(inorders[i]);
+//        }
+//        }
+//
+//        int lTreesSize = lTrees.size();
+//        int rTreesSize = rTrees.size();
+//
+//        return new BinaryTree(1);
