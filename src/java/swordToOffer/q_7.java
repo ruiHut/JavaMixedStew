@@ -63,29 +63,19 @@ class BinaryTree {
         root.rNode = node;
     }
 
-    //
+    // TODO 有待具体实现
     // preorders 前序结果， inorders 中序结果
     public BinaryTree rebackBinaryTree(int[] preorders, int[] inorders) {
         if (preorders.length == 0 && inorders.length == 0)
             return null;
 
-        BinaryTree tree = new BinaryTree(preorders[0]);
-        int root = preorders[0];
-        List preorderChildTrees = getPreorderChildTress(preorders, inorders, root);
-        List inorderChildTrees = getInorderChildTrees(preorders, inorders, root);
+        Node root = new Node(preorders[0]);
+        root.lNode = rebackBinaryTree(preorders, inorders).getRoot();
+        root.rNode = rebackBinaryTree(preorders, inorders).getRoot();
 
-        return tree;
+        return BinaryTree.this;
 
     }
-
-    private List getInorderChildTrees(int[] preorders, int[] inorders, int root) {
-        return new ArrayList();
-    }
-
-    private List getPreorderChildTress(int[] preorders, int[] inorders, int root) {
-        return new ArrayList();
-    }
-
 
     // 二叉树前序遍历
     // 递归
