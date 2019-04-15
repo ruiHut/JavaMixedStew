@@ -17,6 +17,12 @@ public class q_9 {
         s.push(1);
         s.push(2);
         System.out.println(s.pop());
+
+        QueueStack queueStack = new QueueStack();
+        queueStack.push(1);
+        queueStack.push(2);
+        queueStack.push(3);
+        queueStack.pop();
     }
 }
 
@@ -65,5 +71,57 @@ class Queue {
         }
 
         return stack2.pop();
+    }
+
+    public int size() {
+        return stack2.size() + stack1.size();
+    }
+
+    public boolean empty() {
+        return size() == 0;
+    }
+}
+
+
+// 两个队列实现栈
+class QueueStack {
+    private static Queue queue1 = new Queue();
+    private static Queue queue2 = new Queue();
+    // 代表当前存档队列是否为队列 1
+    // TODO 不需要该字段，可由一个队列是否为空来判断
+    private boolean isQueue1 = true;
+
+    public void push(int value) {
+        if (isQueue1)
+            queue1.push(value);
+        else
+            queue2.push(value);
+    }
+
+    public int pop() {
+        // 得到当前正使用队列
+        Queue curQueue = queue2;
+        Queue nextQueue = queue1;
+        if (isQueue1) {
+            curQueue = queue1;
+            nextQueue = queue2;
+        }
+
+        if (curQueue.empty())
+            throw new RuntimeException("Queue is empty");
+
+        return exchangeQueue(curQueue, nextQueue);
+    }
+
+    private int exchangeQueue(Queue curQueue, Queue nextQueue) {
+        for (int i = 0; i < curQueue.size(); i++) {
+            // 当前队列最后一个元素，即需要弹出元素
+            if (i == curQueue.size() - 1) {
+                return curQueue.pop();
+            }
+
+            nextQueue.push(curQueue.pop());
+        }
+        return curQueue.pop();
     }
 }
