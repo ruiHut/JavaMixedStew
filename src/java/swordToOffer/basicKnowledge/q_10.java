@@ -10,8 +10,7 @@ public class q_10 {
         System.out.println(c.cFibonacci(2));
         System.out.println(c.fibonacci(10) == c.cFibonacci(10));
 //        c.fibonacci(10000);
-
-
+        System.out.println(c.frogJump(3));
     }
 
     // 递归实现 - 效率很低 产生很多重复操作, 当输入值很大时，速度非常慢
@@ -49,4 +48,16 @@ public class q_10 {
 
         return res[0] + res[1];
     }
+
+    // TODO 斐波那契数列更快的解法
+
+
+    // 青蛙跳台阶，一次可跳 n~1 阶。f(n) = 2~n-1
+    public int frogJump(int n) {
+        if (n < 1)
+            throw new RuntimeException("输入小于1，n=" + n);
+
+        return (int) Math.pow(2, (n - 1));
+    }
+
 }
