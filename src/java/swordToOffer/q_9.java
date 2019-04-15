@@ -125,3 +125,25 @@ class QueueStack {
         return curQueue.pop();
     }
 }
+
+// 一个队列实现栈
+class Mystack {
+    private static Queue queue = new Queue();
+
+    public void push(int value) {
+        queue.push(value);
+    }
+
+    public int pop() {
+        if (queue.empty())
+            throw new RuntimeException("Stack is empty!");
+
+        int size = queue.size();
+        for (int i = 0; i < size - 1; i++) {
+            // 将头元素插入回队尾元素，直至最后一个待弹出元素;
+            queue.push(queue.pop());
+        }
+
+        return queue.pop();
+    }
+}
