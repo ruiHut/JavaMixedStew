@@ -1,4 +1,4 @@
-package swordToOffer;
+package swordToOffer.basicKnowledge;
 
 
 public class q_5{

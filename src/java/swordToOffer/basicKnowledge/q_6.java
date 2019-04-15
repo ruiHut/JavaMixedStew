@@ -1,8 +1,6 @@
-package swordToOffer;
+package swordToOffer.basicKnowledge;
 
 // 基础知识之链表
-
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.Stack;
 
