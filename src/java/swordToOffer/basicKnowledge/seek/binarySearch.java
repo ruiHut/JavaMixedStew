@@ -52,7 +52,27 @@ public class binarySearch {
         int midIndex = low + (high - low) >> 1;
 
         if (target < data[midIndex])
-            return search2(data, target, low, high -1);
+            return search2(data, target, low, high - 1);
+        if (target == data[midIndex])
+            return midIndex;
+        if (target > data[midIndex])
+            return search2(data, target, low + 1, high);
+
+
+        return 1;
+    }
+
+    // 差值查找
+    // 时间复杂度 O(log2(log2n))
+    // mid = low + (key - data[low])/(data[high] - data[low]) * (high - low)
+    public int search3(int[] data, int target, int low, int high) {
+        if (low <= high)
+            return -1;
+
+        int midIndex = low + (target - data[low]) / (data[high] - data[low]) * (high - low);
+
+        if (target < data[midIndex])
+            return search2(data, target, low, high - 1);
         if (target == data[midIndex])
             return midIndex;
         if (target > data[midIndex])
