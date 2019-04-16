@@ -37,4 +37,28 @@ public class binarySearch {
 
         return -1;
     }
+
+    // 二分查找 递归
+    public int search2(int[] data, int target, int low, int high) {
+        // TODO 真正使用时，将数据校验单拉出来，避免重复校验数据。
+        if (data.length == 0)
+            throw new IllegalArgumentException("输入长度为0，data" + data);
+        if (low > high || data.length - 1 < high)
+            throw new IllegalArgumentException("输入区间不合法, data.length = " + data.length + " low =" + low + " high=" + high);
+
+        if (low <= high)
+            return -1;
+
+        int midIndex = low + (high - low) >> 1;
+
+        if (target < data[midIndex])
+            return search2(data, target, low, high -1);
+        if (target == data[midIndex])
+            return midIndex;
+        if (target > data[midIndex])
+            return search2(data, target, low + 1, high);
+
+
+        return 1;
+    }
 }
