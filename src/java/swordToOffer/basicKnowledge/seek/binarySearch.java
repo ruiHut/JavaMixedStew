@@ -18,14 +18,14 @@ public class binarySearch {
 
     // 二分查找 循环
     // low, high 决定查找
-    public int search1(int[] data, int target, int low,  int high) {
+    public int search1(int[] data, int target, int low, int high) {
         if (data.length == 0)
             throw new IllegalArgumentException("输入长度为0，data" + data);
         if (low > high || data.length - 1 < high)
             throw new IllegalArgumentException("输入区间不合法, data.length = " + data.length + " low =" + low + " high=" + high);
 
         while (low <= high) {
-            int midIndex = low + high >> 1;
+            int midIndex = low + (high - low) >> 1;
 
             if (target < data[midIndex])
                 high = midIndex - 1;
