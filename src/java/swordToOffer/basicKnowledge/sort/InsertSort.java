@@ -1,7 +1,7 @@
 package swordToOffer.basicKnowledge.sort;
 
 public class InsertSort {
-    
+
     public static void main(String[] args) {
         InsertSort s = new InsertSort();
 
@@ -31,9 +31,6 @@ public class InsertSort {
             // 如果进入while 当while结束后 即将key插入value[j + 1] 即最后一个后移位置
             values[j + 1] = key;
         }
-        
-        return;
-
     }
 
     private void insertSort2(int[] values) {
@@ -47,10 +44,9 @@ public class InsertSort {
 
             int key = values[i];
             int j = i - 1;
-            for (; j >= 0  && values[j] > key; j--) {
+            for (; j >= 0 && values[j] > key; j--) {
                 values[j + 1] = values[j];
             }
-
             values[j + 1] = key;
         }
     }
