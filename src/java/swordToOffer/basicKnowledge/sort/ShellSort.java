@@ -22,7 +22,6 @@ public class ShellSort {
         if (arr.length == 1)
             return arr;
 
-
         for (int gap = arr.length >> 1; gap > 0; gap >>= 1) {
             for (int i = gap; i < arr.length; i++) {
                 int key = arr[i];
