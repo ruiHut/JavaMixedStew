@@ -27,6 +27,32 @@ public class MergeSort {
         int[] result = new int[len];
 
         mergeSortRecursive(arr, result, 0, len - 1);
+        mergeSortIteration(arr);
+    }
+
+    private void mergeSortIteration(int[] arr) {
+        int[] orderedArr = new int[arr.length];
+        for (int i = 2; i < arr.length * 2; i *= 2) {
+            for (int j = 0; j < (arr.length + i - 1) / i; j++) {
+                int left = i * j;
+                int mid = left + i / 2 >= arr.length ? (arr.length - 1) : (left + i / 2);
+                int right = i * (j + 1) - 1 >= arr.length ? (arr.length - 1) : (i * (j + 1) - 1);
+                int start = left, l = left, m = mid;
+                while (l < mid && m <= right) {
+                    if (arr[l] < arr[m]) {
+                        orderedArr[start++] = arr[l++];
+                    } else {
+                        orderedArr[start++] = arr[m++];
+                    }
+                }
+                while (l < mid)
+                    orderedArr[start++] = arr[l++];
+                while (m <= right)
+                    orderedArr[start++] = arr[m++];
+                System.arraycopy(orderedArr, left, arr, left, right - left + 1);
+
+            }
+        }
     }
 
     private void mergeSortRecursive(int[] arr, int[] result, int begin, int over) {
