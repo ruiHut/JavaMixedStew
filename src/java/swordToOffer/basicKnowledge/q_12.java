@@ -3,9 +3,7 @@ package swordToOffer.basicKnowledge;
 // 矩阵中的路径
 public class q_12 {
     public static void main(String[] args) {
-        q_12 q = new q_12();
-
-
+        // TODO 照抄原书 有待测试
     }
 
     private static boolean hasPath(char[] matrix, int rows, int cols, char[] str) {
